@@ -8,58 +8,93 @@
     <title>Never Stops - Free V2Ray VPN</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            padding: 20px;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
+            margin: 0;
             background-color: #f9f9f9;
             color: #333;
         }
 
-        .card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: 20px;
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
         }
 
-        /* Logo */
+        /* =========================
+           LOGO
+        ========================== */
+
         .logo {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 10px;
-            margin-bottom: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
         }
 
-        h1 {
-            color: #007bff;
+        /* =========================
+           IMAGE SLIDER
+        ========================== */
+
+        .slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
         }
 
-        /* Screenshots */
-        .screenshots img {
+        .slides {
+            display: flex;
+            transition: transform 0.6s ease;
+        }
+
+        .slides img {
+            min-width: 100%;
             width: 100%;
             height: auto;
             display: block;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
         }
+
+        /* =========================
+           DESCRIPTION
+        ========================== */
+
+        .description {
+            background: #ffffff;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            line-height: 1.6;
+        }
+
+        .description h1 {
+            color: #007bff;
+            margin-top: 0;
+        }
+
+        /* =========================
+           DOWNLOAD BUTTON
+        ========================== */
 
         .download-btn {
             display: inline-block;
             background-color: #28a745;
             color: white;
-            padding: 14px 28px;
-            margin: 20px 0;
+            padding: 15px 35px;
+            margin: 30px 0;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: 0.3s;
         }
 
@@ -67,25 +102,64 @@
             background-color: #218838;
         }
 
+        /* =========================
+           PRIVACY
+        ========================== */
+
         .privacy {
             text-align: left;
-            margin-top: 40px;
+            margin-top: 20px;
             border-top: 1px solid #ddd;
             padding-top: 20px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 10px;
+            }
+
+            .logo {
+                border-radius: 8px;
+            }
+
+            .description {
+                padding: 20px;
+            }
+
+            .download-btn {
+                width: 100%;
+                padding: 15px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="card">
+<div class="container">
 
-        <!-- Logo -->
-        <img src="logo.png" alt="Never Stops VPN" class="logo">
+    <!-- =========================
+         LOGO
+    ========================== -->
+
+    <img
+        src="logo.png"
+        alt="Never Stops VPN"
+        class="logo">
 
 
-        <!-- Screenshots -->
-        <div class="screenshots">
+    <!-- =========================
+         IMAGE SLIDER
+    ========================== -->
+
+    <div class="slider">
+
+        <div class="slides" id="slides">
 
             <img src="1.jpg" alt="Never Stops Screenshot 1">
 
@@ -95,8 +169,15 @@
 
         </div>
 
+    </div>
 
-        <!-- Description -->
+
+    <!-- =========================
+         DESCRIPTION
+    ========================== -->
+
+    <div class="description">
+
         <h1>Never Stops VPN</h1>
 
         <p>
@@ -104,37 +185,80 @@
             and automatic configuration updates every 6 hours.
         </p>
 
-
-        <!-- Download -->
-        <a
-            href="https://github.com/Mohamedhnini-a/never-stops-privacy/releases/download/v1.3.4/app-release.apk"
-            class="download-btn">
-            📥 Download APK (v1.3.4)
-        </a>
-
-
-        <!-- Privacy Policy -->
-        <div class="privacy">
-
-            <h2>Privacy Policy</h2>
-
-            <p>
-                <small>Last updated: August 2026</small>
-            </p>
-
-            <p>
-                <strong>Never Stops</strong> does not collect, store,
-                or share any personal data from its users.
-            </p>
-
-            <p>
-                All proxy connections and configurations are executed
-                locally on the device.
-            </p>
-
-        </div>
+        <p>
+            Never Stops provides a simple and reliable VPN
+            experience with easy access to multiple server categories.
+        </p>
 
     </div>
+
+
+    <!-- =========================
+         DOWNLOAD
+    ========================== -->
+
+    <a
+        href="https://github.com/Mohamedhnini-a/never-stops-privacy/releases/download/v1.3.4/app-release.apk"
+        class="download-btn">
+
+        📥 Download APK (v1.3.4)
+
+    </a>
+
+
+    <!-- =========================
+         PRIVACY POLICY
+    ========================== -->
+
+    <div class="privacy">
+
+        <h2>Privacy Policy</h2>
+
+        <p>
+            <small>Last updated: August 2026</small>
+        </p>
+
+        <p>
+            <strong>Never Stops</strong> does not collect, store,
+            or share any personal data from its users.
+        </p>
+
+        <p>
+            All proxy connections and configurations are executed
+            locally on the device.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     SLIDER SCRIPT
+========================== -->
+
+<script>
+
+    let currentSlide = 0;
+
+    const slides = document.getElementById("slides");
+
+    const totalSlides = 3;
+
+    setInterval(() => {
+
+        currentSlide++;
+
+        if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        }
+
+        slides.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
+
+    }, 3000);
+
+</script>
 
 </body>
 </html>
