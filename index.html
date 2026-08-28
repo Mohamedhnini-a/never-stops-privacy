@@ -1,9 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Never Stops - Free V2Ray VPN</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,6 +18,7 @@
             background-color: #f9f9f9;
             color: #333;
         }
+
         .card {
             background: #ffffff;
             padding: 30px;
@@ -22,7 +26,30 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-top: 20px;
         }
-        h1 { color: #007bff; }
+
+        /* Logo */
+        .logo {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        /* Screenshots */
+        .screenshots img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
         .download-btn {
             display: inline-block;
             background-color: #28a745;
@@ -35,9 +62,11 @@
             border-radius: 8px;
             transition: 0.3s;
         }
+
         .download-btn:hover {
             background-color: #218838;
         }
+
         .privacy {
             text-align: left;
             margin-top: 40px;
@@ -46,23 +75,67 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="card">
-        <h1>Never Stops VPN</h1>
-        <p>Free V2Ray VPN featuring multi-server categories and automatic config updates every 6 hours.</p>
-        
-        <!-- زر التحميل المباشر بالرابط ديالك -->
-        <a href="https://github.com/Mohamedhnini-a/never-stops-privacy/releases/download/v1.3.4/app-release.apk" class="download-btn">📥 Download APK (v1.3.4)</a>
 
-        <!-- قسم سياسة الخصوصية -->
-        <div class="privacy">
-            <h2>Privacy Policy</h2>
-            <p><small>Last updated: August 2026</small></p>
-            <p><strong>Never Stops</strong> does not collect, store, or share any personal data from its users.</p>
-            <p>All proxy connections and configurations are executed locally on the device.</p>
+        <!-- Logo -->
+        <img src="logo.png" alt="Never Stops VPN" class="logo">
+
+
+        <!-- Screenshots -->
+        <div class="screenshots">
+
+            <img src="1.jpg" alt="Never Stops Screenshot 1">
+
+            <img src="2.jpg" alt="Never Stops Screenshot 2">
+
+            <img src="3.jpg" alt="Never Stops Screenshot 3">
+
         </div>
+
+
+        <!-- Description -->
+        <h1>Never Stops VPN</h1>
+
+        <p>
+            Free V2Ray VPN featuring multi-server categories
+            and automatic configuration updates every 6 hours.
+        </p>
+
+
+        <!-- Download -->
+        <a
+            href="https://github.com/Mohamedhnini-a/never-stops-privacy/releases/download/v1.3.4/app-release.apk"
+            class="download-btn">
+            📥 Download APK (v1.3.4)
+        </a>
+
+
+        <!-- Privacy Policy -->
+        <div class="privacy">
+
+            <h2>Privacy Policy</h2>
+
+            <p>
+                <small>Last updated: August 2026</small>
+            </p>
+
+            <p>
+                <strong>Never Stops</strong> does not collect, store,
+                or share any personal data from its users.
+            </p>
+
+            <p>
+                All proxy connections and configurations are executed
+                locally on the device.
+            </p>
+
+        </div>
+
     </div>
 
 </body>
 </html>
+```
