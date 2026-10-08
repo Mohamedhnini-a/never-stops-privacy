@@ -27,7 +27,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* ===== FIXED BACKGROUND IMAGE ===== */
+        /* ===== BACKGROUND IMAGE ===== */
         body {
             background-image: url('bgrond.jpg');
             background-size: cover;
@@ -37,7 +37,6 @@
             background-color: #050810;
         }
 
-        /* Dark overlay for readability */
         body::before {
             content: '';
             position: fixed;
@@ -65,7 +64,7 @@
             overflow: hidden;
         }
 
-        /* ===== TOP TITLE ===== */
+        /* ===== TITLE ===== */
         .hero-title {
             text-align: center;
             font-family: 'Orbitron', sans-serif;
@@ -81,7 +80,7 @@
             padding-top: 4px;
         }
 
-        /* ===== MAIN: Phone (left) + Description (right) ===== */
+        /* ===== MAIN ===== */
         .main {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -91,7 +90,7 @@
             overflow: hidden;
         }
 
-        /* ═══ PHONE (LEFT) ═══ */
+        /* ===== PHONE ===== */
         .phone-wrap {
             display: flex;
             justify-content: center;
@@ -152,7 +151,7 @@
             display: block;
         }
 
-        /* ═══ DESCRIPTION (RIGHT) ═══ */
+        /* ===== DESCRIPTION ===== */
         .description {
             display: flex;
             flex-direction: column;
@@ -186,7 +185,7 @@
             color: var(--text-dim);
         }
 
-        /* ===== DOWNLOAD BUTTONS ===== */
+        /* ===== DOWNLOADS ===== */
         .downloads {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -245,7 +244,7 @@
             text-overflow: ellipsis;
         }
 
-        /* ===== FOOTER: Privacy (left) + About (right) ===== */
+        /* ===== FOOTER ===== */
         .footer {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
@@ -368,73 +367,114 @@
             margin-top: 4px;
         }
 
-        /* ===== MOBILE ===== */
+        /* ============================================
+           MOBILE
+        ============================================ */
         @media (max-width: 850px) {
+            html, body {
+                overflow-y: auto;
+                overflow-x: hidden;
+                height: auto;
+            }
+
             .container {
-                padding: 14px 16px;
-                gap: 10px;
-                grid-template-rows: auto auto 1fr auto;
+                height: auto;
+                min-height: 100vh;
+                padding: 12px 14px 20px;
+                gap: 12px;
+                grid-template-rows: auto auto auto auto;
+                overflow: visible;
             }
 
             .hero-title {
-                font-size: 28px;
+                font-size: 24px;
                 letter-spacing: 4px;
+                margin-bottom: 2px;
             }
 
+            /* Stack — Description first */
             .main {
                 grid-template-columns: 1fr;
-                gap: 12px;
+                gap: 14px;
                 align-items: stretch;
+                overflow: visible;
             }
 
-            /* Description first on mobile */
             .description {
                 order: 1;
                 padding-right: 0;
-                gap: 8px;
+                gap: 6px;
+                text-align: center;
             }
 
             .description .tagline {
-                font-size: 15px;
+                font-size: 14px;
+                margin-bottom: 2px;
                 text-align: center;
             }
 
             .description h1 {
-                font-size: 16px;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 1.4;
                 text-align: center;
-                margin-bottom: 6px;
+                margin-bottom: 4px;
+                padding: 0 6px;
             }
 
             .description p {
-                font-size: 12px;
+                font-size: 11px;
                 text-align: center;
+                padding: 0 6px;
+                line-height: 1.55;
             }
 
+            /* Phone smaller */
             .phone-wrap {
                 order: 2;
                 height: auto;
-                max-height: 45vh;
+                max-height: none;
+                padding: 4px 0;
             }
 
             .phone-frame {
-                height: 45vh;
-                max-height: 45vh;
+                height: 40vh;
+                max-height: 360px;
+                min-height: 240px;
+                aspect-ratio: 9 / 18;
+                margin: 0 auto;
+                border-radius: 26px;
+                padding: 7px;
             }
 
+            .phone-frame::before {
+                width: 60px;
+                height: 16px;
+                top: 9px;
+            }
+
+            .phone-screen {
+                border-radius: 20px;
+            }
+
+            /* Downloads single column */
             .downloads {
                 grid-template-columns: 1fr;
                 gap: 8px;
             }
 
             .download-btn {
-                padding: 14px 16px;
+                padding: 13px 16px;
                 font-size: 11px;
             }
 
+            .download-btn svg { width: 16px; height: 16px; }
+
+            /* Footer stacked */
             .footer {
                 grid-template-columns: 1fr;
                 padding: 14px 16px;
-                gap: 12px;
+                gap: 14px;
             }
 
             .privacy-block {
@@ -444,12 +484,13 @@
                 padding-bottom: 12px;
             }
 
+            .privacy-icon { font-size: 22px; }
             .privacy-content h3 { font-size: 13px; }
             .privacy-content p { font-size: 10px; }
 
             .social-icon {
-                width: 42px;
-                height: 42px;
+                width: 44px;
+                height: 44px;
             }
 
             .social-icon svg { width: 22px; height: 22px; }
@@ -457,12 +498,21 @@
 
         @media (max-width: 500px) {
             .hero-title {
-                font-size: 22px;
+                font-size: 20px;
                 letter-spacing: 3px;
             }
 
+            .description h1 {
+                font-size: 13px;
+            }
+
+            .description p {
+                font-size: 10.5px;
+            }
+
             .phone-frame {
-                height: 38vh;
+                height: 36vh;
+                min-height: 220px;
             }
 
             .download-btn {
@@ -472,28 +522,17 @@
 
             .download-btn svg { width: 14px; height: 14px; }
         }
-
-        @media (max-height: 700px) {
-            .phone-frame {
-                max-height: 40vh;
-            }
-            .hero-title {
-                font-size: clamp(24px, 4vw, 42px);
-            }
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
 
-    <!-- ═══ TITLE ═══ -->
     <h1 class="hero-title">NEVER STOPS</h1>
 
-    <!-- ═══ MAIN: Phone (left) + Description (right) ═══ -->
     <div class="main">
 
-        <!-- LEFT: Phone -->
+        <!-- Phone (left on desktop, bottom on mobile after description) -->
         <div class="phone-wrap">
             <div class="phone-frame">
                 <div class="phone-screen">
@@ -509,7 +548,7 @@
             </div>
         </div>
 
-        <!-- RIGHT: Description -->
+        <!-- Description (right on desktop, top on mobile) -->
         <div class="description">
             <div class="tagline">Free • Reliable • Fast</div>
 
@@ -524,7 +563,7 @@
 
     </div>
 
-    <!-- ═══ DOWNLOAD BUTTONS ═══ -->
+    <!-- Downloads -->
     <div class="downloads">
         <a href="https://github.com/Mohamedhnini-a/never-stops-privacy/releases/latest/download/NEverStops-arm64-v8a-release.apk"
            class="download-btn">
@@ -543,10 +582,9 @@
         </a>
     </div>
 
-    <!-- ═══ FOOTER: Privacy + About ═══ -->
+    <!-- Footer -->
     <div class="footer">
 
-        <!-- Privacy -->
         <div class="privacy-block">
             <div class="privacy-icon">🛡️</div>
             <div class="privacy-content">
@@ -557,7 +595,6 @@
             </div>
         </div>
 
-        <!-- About + Social -->
         <div class="about-block">
             <h3>ABOUT</h3>
             <div class="social-row">
@@ -593,13 +630,11 @@
     const totalSlides = 6;
     const slides = document.getElementById("slides");
 
-    // Auto-play
     setInterval(() => {
         currentSlide = (currentSlide + 1) % totalSlides;
         slides.style.transform = `translateX(-${currentSlide * 100}%)`;
     }, 3500);
 
-    // Swipe
     let touchStartX = 0;
     const frame = document.querySelector(".phone-screen");
 
