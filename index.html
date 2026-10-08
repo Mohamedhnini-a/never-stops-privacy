@@ -52,10 +52,10 @@
             height: 100dvh;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 18px 30px 14px;
-            display: grid;
-            grid-template-rows: auto auto 1fr auto;
-            gap: 14px;
+            padding: 14px 30px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             overflow: hidden;
         }
 
@@ -63,9 +63,9 @@
         .hero-title {
             text-align: center;
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(28px, 5vw, 60px);
+            font-size: clamp(24px, 4.5vw, 52px);
             font-weight: 900;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             color: #FFFFFF;
             text-shadow:
                 0 0 20px rgba(0, 200, 255, 0.6),
@@ -73,38 +73,27 @@
                 0 4px 20px rgba(0, 0, 0, 0.8);
             line-height: 1;
             padding-top: 2px;
+            flex-shrink: 0;
         }
 
-        /* MAIN */
+        /* MAIN: Image + Description */
         .main {
             display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 40px;
+            grid-template-columns: auto 1fr;
+            gap: 20px;
             align-items: start;
-            min-height: 0;
-            overflow: visible;
-        }
-
-        /* SCREENSHOT — حجم طبيعي */
-        .screenshot-wrap {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: auto;
-            overflow: visible;
+            flex-shrink: 0;
         }
 
         .screenshot-frame {
             position: relative;
             width: 100%;
-            max-width: 260px;
-            height: auto;
-            border-radius: 14px;
+            max-width: 180px;
+            border-radius: 12px;
             overflow: hidden;
-            background: transparent;
             box-shadow:
-                0 0 30px rgba(74, 108, 247, 0.3),
-                0 15px 40px rgba(0, 0, 0, 0.7);
+                0 0 25px rgba(74, 108, 247, 0.3),
+                0 10px 30px rgba(0, 0, 0, 0.7);
         }
 
         .slides {
@@ -117,50 +106,51 @@
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 14px;
         }
 
-        /* DESCRIPTION */
         .description {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            gap: 12px;
+            gap: 8px;
             min-width: 0;
-            padding-top: 8px;
+            padding-top: 4px;
         }
 
         .description .tagline {
-            font-size: clamp(15px, 1.5vw, 22px);
+            font-size: clamp(14px, 1.4vw, 20px);
             font-weight: 700;
             background: linear-gradient(90deg, #6B8FF7 0%, #4A6CF7 50%, #8B5CF6 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
-            margin-bottom: 4px;
         }
 
         .description h1 {
-            font-size: clamp(18px, 2vw, 28px);
+            font-size: clamp(15px, 1.6vw, 22px);
             font-weight: 700;
             line-height: 1.3;
             color: #FFFFFF;
-            margin-bottom: 8px;
         }
 
         .description p {
-            font-size: clamp(12px, 1.1vw, 15px);
-            line-height: 1.7;
+            font-size: clamp(11px, 1vw, 13px);
+            line-height: 1.6;
             color: var(--text-dim);
         }
 
         /* DOWNLOADS */
         .downloads {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            align-self: end;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .download-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .download-btn {
@@ -168,23 +158,21 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 16px 18px;
+            padding: 10px 16px;
             background: linear-gradient(135deg, #4A6CF7 0%, #6B8FF7 100%);
             border: none;
-            border-radius: 14px;
+            border-radius: 10px;
             text-decoration: none;
             color: #FFFFFF;
-            font-size: clamp(10px, 1vw, 13px);
+            font-size: clamp(11px, 1.1vw, 14px);
             font-weight: 600;
-            letter-spacing: 0.3px;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(74, 108, 247, 0.4);
-            min-width: 0;
+            box-shadow: 0 6px 20px rgba(74, 108, 247, 0.4);
         }
 
         .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(74, 108, 247, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(74, 108, 247, 0.6);
         }
 
         .download-btn svg {
@@ -193,87 +181,86 @@
             flex-shrink: 0;
         }
 
-        .download-btn span {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .download-desc {
+            font-size: clamp(9px, 0.9vw, 11px);
+            color: var(--text-dim);
+            text-align: center;
+            letter-spacing: 0.3px;
         }
 
-        /* FOOTER — Privacy أكبر */
-        .footer {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr;
-            gap: 18px;
+        /* PRIVACY */
+        .privacy-block {
+            display: flex;
+            gap: 12px;
+            align-items: center;
             background: var(--card-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 18px 24px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .privacy-block {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            padding-right: 20px;
-            border-right: 1px solid rgba(100, 130, 220, 0.2);
+            border-radius: 12px;
+            padding: 12px 18px;
+            flex-shrink: 0;
         }
 
         .privacy-icon {
-            font-size: 38px;
+            font-size: 30px;
             flex-shrink: 0;
-            filter: drop-shadow(0 0 14px rgba(100, 150, 255, 0.7));
+            filter: drop-shadow(0 0 12px rgba(100, 150, 255, 0.7));
         }
 
         .privacy-content h3 {
-            font-size: 17px;
+            font-size: 14px;
             font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
             color: #FFFFFF;
         }
 
         .privacy-content p {
-            font-size: 12.5px;
-            line-height: 1.6;
+            font-size: 11px;
+            line-height: 1.5;
             color: var(--text-dim);
-            margin-bottom: 4px;
         }
 
         .privacy-content .updated {
-            font-size: 10.5px;
+            font-size: 9px;
             color: #6B7280;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
+        /* ABOUT — inline */
         .about-block {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            gap: 16px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 10px 18px;
+            flex-shrink: 0;
         }
 
         .about-block h3 {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 900;
             letter-spacing: 2px;
             color: #FFFFFF;
-            margin-bottom: 2px;
+            flex-shrink: 0;
         }
 
         .social-row {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
+            flex: 1;
         }
 
         .social-icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -282,208 +269,142 @@
         }
 
         .social-icon svg {
-            width: 26px;
-            height: 26px;
+            width: 22px;
+            height: 22px;
             color: #FFFFFF;
         }
 
         .social-icon.whatsapp {
             background: linear-gradient(135deg, #25D366, #1FA855);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
 
         .social-icon.facebook {
             background: linear-gradient(135deg, #1877F2, #0D5BB8);
-            box-shadow: 0 6px 20px rgba(24, 119, 242, 0.4);
+            box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
         }
 
         .social-icon.instagram {
             background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF);
-            box-shadow: 0 6px 20px rgba(221, 42, 123, 0.4);
+            box-shadow: 0 4px 15px rgba(221, 42, 123, 0.4);
         }
 
         .about-tagline {
-            font-size: 10.5px;
+            font-size: 10px;
             color: var(--text-dim);
-            letter-spacing: 1px;
-            margin-top: 2px;
-            text-align: center;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
         }
 
-        /* ============================================
-           MOBILE
-        ============================================ */
+        /* MOBILE */
         @media (max-width: 850px) {
-            html, body {
-                overflow: hidden;
-                height: 100%;
-            }
-
             .container {
-                height: 100vh;
-                height: 100dvh;
-                padding: 8px 10px 6px;
-                gap: 6px;
-                grid-template-rows: auto auto 1fr auto;
-                overflow: hidden;
+                padding: 10px 12px 8px;
+                gap: 8px;
             }
 
             .hero-title {
-                font-size: 19px;
+                font-size: 20px;
                 letter-spacing: 3px;
-                padding-top: 2px;
             }
 
-            /* MAIN — 2 columns، محاذي فوق */
             .main {
-                grid-template-columns: 40% 1fr;
-                gap: 10px;
-                align-items: start;
-                min-height: 0;
-                padding-top: 2px;
-            }
-
-            /* SCREENSHOT — حجم طبيعي، على اليسار */
-            .screenshot-wrap {
-                align-items: flex-start;
-                justify-content: flex-start;
-                height: auto;
-                overflow: visible;
+                gap: 12px;
             }
 
             .screenshot-frame {
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                border-radius: 10px;
-                overflow: hidden;
-                background: transparent;
-                box-shadow:
-                    0 0 15px rgba(74, 108, 247, 0.4),
-                    0 6px 18px rgba(0, 0, 0, 0.7);
-            }
-
-            .slides img {
-                width: 100%;
-                height: auto;
-                display: block;
+                max-width: 130px;
                 border-radius: 10px;
             }
 
-            /* DESCRIPTION — على اليمين، محاذي مع فوق الصورة */
             .description {
-                gap: 3px;
-                min-width: 0;
-                justify-content: flex-start;
-                padding-top: 4px;
+                gap: 5px;
+                padding-top: 2px;
             }
 
             .description .tagline {
-                font-size: 10.5px;
-                letter-spacing: 0.3px;
-                margin-bottom: 3px;
+                font-size: 12px;
             }
 
             .description h1 {
-                font-size: 11px;
+                font-size: 12px;
                 line-height: 1.3;
-                margin-bottom: 3px;
-                font-weight: 700;
             }
 
             .description p {
-                font-size: 8.5px;
+                font-size: 9px;
                 line-height: 1.45;
             }
 
-            /* DOWNLOADS */
-            .downloads {
-                grid-template-columns: 1fr 1fr;
-                gap: 6px;
-                align-self: end;
-            }
-
             .download-btn {
-                padding: 9px 6px;
-                gap: 4px;
-                font-size: 8px;
-                letter-spacing: 0;
+                padding: 9px 12px;
+                font-size: 10px;
                 border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(74, 108, 247, 0.4);
             }
 
             .download-btn svg {
-                width: 10px;
-                height: 10px;
+                width: 13px;
+                height: 13px;
             }
 
-            .download-btn span {
-                font-size: 7.5px;
+            .download-desc {
+                font-size: 8px;
             }
 
-            /* FOOTER — Privacy أكبر */
-            .footer {
-                grid-template-columns: 1.5fr 1fr;
-                padding: 10px 12px;
+            .privacy-block {
+                padding: 9px 12px;
                 gap: 10px;
                 border-radius: 10px;
             }
 
-            .privacy-block {
-                gap: 10px;
-                padding-right: 10px;
-            }
-
             .privacy-icon {
-                font-size: 24px;
+                font-size: 22px;
             }
 
             .privacy-content h3 {
                 font-size: 10px;
-                letter-spacing: 0.6px;
-                margin-bottom: 4px;
+                letter-spacing: 0.8px;
+                margin-bottom: 3px;
             }
 
             .privacy-content p {
-                font-size: 7.5px;
+                font-size: 8px;
                 line-height: 1.4;
-                margin-bottom: 2px;
             }
 
             .privacy-content .updated {
                 font-size: 7px;
-                margin-top: 3px;
+                margin-top: 2px;
             }
 
             .about-block {
-                gap: 4px;
+                padding: 8px 12px;
+                gap: 12px;
+                border-radius: 10px;
             }
 
             .about-block h3 {
                 font-size: 10px;
-                letter-spacing: 1px;
-                margin-bottom: 0;
+                letter-spacing: 1.2px;
             }
 
             .social-row {
-                gap: 5px;
+                gap: 8px;
             }
 
             .social-icon {
-                width: 26px;
-                height: 26px;
-                border-radius: 7px;
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
             }
 
             .social-icon svg {
-                width: 14px;
-                height: 14px;
+                width: 18px;
+                height: 18px;
             }
 
             .about-tagline {
-                font-size: 6.5px;
-                letter-spacing: 0.3px;
-                margin-top: 0;
+                font-size: 7px;
             }
         }
 
@@ -493,10 +414,10 @@
                 letter-spacing: 2px;
             }
 
-            .description h1 { font-size: 10px; }
-            .description p { font-size: 7.5px; }
-            .download-btn span { font-size: 7px; }
-            .privacy-content p { font-size: 7px; }
+            .description h1 { font-size: 10.5px; }
+            .description p { font-size: 8px; }
+            .download-btn { font-size: 9px; }
+            .download-desc { font-size: 7px; }
         }
     </style>
 </head>
@@ -507,84 +428,77 @@
     <h1 class="hero-title">NEVER STOPS</h1>
 
     <div class="main">
-
-        <!-- SCREENSHOT -->
-        <div class="screenshot-wrap">
-            <div class="screenshot-frame">
-                <div class="slides" id="slides">
-                    <img src="1.jpg" alt="1">
-                    <img src="2.jpg" alt="2">
-                    <img src="3.jpg" alt="3">
-                    <img src="4.jpg" alt="4">
-                    <img src="5.jpg" alt="5">
-                    <img src="6.jpg" alt="6">
-                </div>
+        <div class="screenshot-frame">
+            <div class="slides" id="slides">
+                <img src="1.jpg" alt="1">
+                <img src="2.jpg" alt="2">
+                <img src="3.jpg" alt="3">
+                <img src="4.jpg" alt="4">
+                <img src="5.jpg" alt="5">
+                <img src="6.jpg" alt="6">
             </div>
         </div>
 
-        <!-- Description -->
         <div class="description">
             <div class="tagline">Free • Reliable • Fast</div>
             <h1>Never Stops is a free V2Ray VPN application designed to provide a simple and reliable connection experience.</h1>
             <p>Enjoy multiple server categories with automatic configuration updates and an easy-to-use interface. Connect in one tap, join the community chat, and enjoy a premium VPN experience — completely free.</p>
         </div>
-
     </div>
 
-    <!-- Downloads -->
     <div class="downloads">
-        <a href="https://github.com/Mohamedhnini-a/never-stops-privacy/releases/latest/download/NEverStops-arm64-v8a-release.apk" class="download-btn">
-            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14"/>
-            </svg>
-            <span>NEverStops-arm64-v8a-release</span>
-        </a>
+        <div class="download-item">
+            <a href="https://github.com/Mohamedhnini-a/never-stops-privacy/releases/latest/download/NEverStops-arm64-v8a-release.apk" class="download-btn">
+                <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14"/>
+                </svg>
+                <span>Download arm64-v8a</span>
+            </a>
+            <div class="download-desc">For modern devices (64-bit)</div>
+        </div>
 
-        <a href="https://github.com/Mohamedhnini-a/never-stops-privacy/releases/latest/download/NEverStops-armeabi-v7a-release.apk" class="download-btn">
-            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14"/>
-            </svg>
-            <span>NEverStops-armeabi-v7a-release</span>
-        </a>
+        <div class="download-item">
+            <a href="https://github.com/Mohamedhnini-a/never-stops-privacy/releases/latest/download/NEverStops-armeabi-v7a-release.apk" class="download-btn">
+                <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14"/>
+                </svg>
+                <span>Download armeabi-v7a</span>
+            </a>
+            <div class="download-desc">For older devices (32-bit)</div>
+        </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-
-        <div class="privacy-block">
-            <div class="privacy-icon">🛡️</div>
-            <div class="privacy-content">
-                <h3>PRIVACY POLICY</h3>
-                <p>Never Stops does not collect, store, or share any personal data.</p>
-                <p>All connections are encrypted end-to-end. No logs are kept. Your privacy is our priority.</p>
-                <div class="updated">Last updated August 2026</div>
-            </div>
+    <div class="privacy-block">
+        <div class="privacy-icon">🛡️</div>
+        <div class="privacy-content">
+            <h3>PRIVACY POLICY</h3>
+            <p>Never Stops does not collect, store, or share any personal data. All connections are encrypted end-to-end. No logs are kept. Your privacy is our priority.</p>
+            <div class="updated">Last updated August 2026</div>
         </div>
+    </div>
 
-        <div class="about-block">
-            <h3>ABOUT</h3>
-            <div class="social-row">
-                <a href="https://wa.me/212600000000" target="_blank" class="social-icon whatsapp">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                </a>
+    <div class="about-block">
+        <h3>ABOUT</h3>
+        <div class="social-row">
+            <a href="https://wa.me/212600000000" target="_blank" class="social-icon whatsapp">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+            </a>
 
-                <a href="https://facebook.com/neverstops" target="_blank" class="social-icon facebook">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                </a>
+            <a href="https://facebook.com/neverstops" target="_blank" class="social-icon facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a>
 
-                <a href="https://instagram.com/neverstops" target="_blank" class="social-icon instagram">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                    </svg>
-                </a>
-            </div>
-            <div class="about-tagline">Support • Community • Version 1.3.5</div>
+            <a href="https://instagram.com/neverstops" target="_blank" class="social-icon instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+            </a>
         </div>
-
+        <div class="about-tagline">Version 1.3.5</div>
     </div>
 
 </div>
